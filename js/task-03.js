@@ -16,27 +16,23 @@ const images = [
 ];
 
 const galeryEl = document.querySelector(".gallery");
-console.log(galeryEl);
 
 const elemImgEl = images
-  .map((images) => {
-    const itemsEl = document.createElement("li");
-    itemsEl.classList.add("item");
-    console.log(itemsEl);
-
-    const imgEl = document.createElement("img");
-    imgEl.classList.add("images");
-    imgEl.src = images.url;
-    imgEl.alt = images.alt;
-    console.log(imgEl);
-    return `<li> <img src = '${images.url}', alt = '${images.alt}', width = 150, height = 150> </li>`;
-  })
+  .map(
+    (image) =>
+      `<li><img class="picture" 
+      src=${image.url} 
+      width = '150' 
+      height = '150' 
+      alt='${image.alt}'>
+      </img></li>`
+  )
   .join("");
 
-galeryEl.insertAdjacentHTML("afterbegin", elemImgEl);
+galeryEl.insertAdjacentHTML("beforeend", elemImgEl);
 
-galeryEl.style.display = 'flex';
-galeryEl.style.flexWrap = 'column-reverse';
-galeryEl.style.listStyle = 'none';
-galeryEl.style.gap = '15px';
-galeryEl.style.justifyContent = 'center';
+galeryEl.style.display = "flex";
+galeryEl.style.flexWrap = "column-reverse";
+galeryEl.style.listStyle = "none";
+galeryEl.style.gap = "15px";
+galeryEl.style.justifyContent = "center";
